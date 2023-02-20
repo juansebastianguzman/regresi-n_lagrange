@@ -4,7 +4,7 @@
 
 #Importamos las librerias necesarias 
 import numpy as np
-import matplotlib.pylab as plt
+import matplotlib.pyplot as plt
 from scipy import integrate
 from scipy import signal as sp
 #from sympy import * 
@@ -24,14 +24,13 @@ print('el valor de la frecuencia angular es:',w)
 amplitude = 1
 
 
-time = np.arange(-3, 3, 0.001)
-squareWaveFunction = sym.Piecewise((-1,((t>=-T/2) & (t<=-T/4))))
+time = np.linspace(-3, 3)
+squareWaveFunction = np.piecewise(time,[((time>=-T/2) & (time<=-T/4)),((time>-T/4) & (time<T/4)),((time>=T/4) & (time<=T/2))],[-1, 1, -1])
+print(squareWaveFunction)
 
-# Graficamos la onda cuadrada
-plt.plot(time, squareWaveFunction, lw=2)
+#Graficamos la onda cuadrada
+plt.plot(time, squareWaveFunction)
 plt.grid()
-plt.annotate('T', xy = (np.pi, 0), xytext = (np.pi, -0.01))
-plt.annotate('T/2', xy = (np.pi / 2.0, 0), xytext = (np.pi / 2.0, 1.01))
 plt.ylabel('Amplitude')
 plt.xlabel('time(t)')
 plt.show()
