@@ -21,6 +21,7 @@ print('el valor del periodo es:',T)
 w = (2*np.pi)/T
 print('el valor de la frecuencia angular es:',w)
 
+#utilizamos el rango de tiempo orientado en la onda de la actividad 
 t = np.arange(-3, 3, 0.01)
 squareWaveFunction = np.piecewise(t,[((t>=-T/2) & (t<=-T/4)),((t>-T/4) & (t<T/4)),((t>=T/4) & (t<=T/2))],[-1, 1, -1])
 
@@ -68,6 +69,7 @@ print('El valor de bn es :', bn)
 
 print( "f(x) = ")
 
+#utilizamos el numero de coeficientes indicados en el ejercicio
 nCoeficientes = 8
 serie = (ao/2)
 for i in range(1, nCoeficientes + 1):
